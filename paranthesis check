@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.io.*;
+import java.util.Stack;
+class Main {
+    
+        public static void main(String[] args)
+        {
+            Scanner obj=new Scanner(System.in);
+            String str=obj.nextLine();
+            int len,i,top=-1;
+            char ch;
+            len=str.length();
+            Stack<Character> s = new Stack<>();
+            for(i=0;i<len;i++)
+            {
+                ch=str.charAt(i);
+                if(ch=='(' || ch=='{' || ch=='[')
+                {
+                    s.push(ch);
+                }
+                else if(ch==')' || ch=='}' || ch==']')
+                {
+                    if(s.isEmpty())
+                    {
+                        top=-2;
+                        break;
+                    }
+                    else{
+                        char l=s.pop();
+                        if((ch==')' && l!='(') || (ch=='}' && l!='{') || (ch==']' && l!='['))
+                        {
+                           top=-2;
+                           break;
+                        }
+                        //top--;
+                        
+                    }
+                }
+                
+            }
+            if(s.isEmpty())
+            {
+                System.out.println("Given paranthesis equation is true");
+            }
+            else{
+                System.out.println("Given paranthesis equation is false");
+                
+            }
+        }
+}
