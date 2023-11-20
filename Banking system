@@ -1,0 +1,65 @@
+import java.util.Scanner;
+class Account
+{
+    void display()
+    {
+        
+    }
+}
+class setAccountBalance extends Account
+{
+    int id,bal,cre,b;
+    String name;
+    setAccountBalance(String name, int id,int bal,int cre,int b)
+    {
+        this.name=name;
+        this.id=id;
+        this.bal=bal;
+        this.cre=cre;
+        this.b=b;
+    }
+    void display()
+    {
+        if(bal>0 && (id>100 && id<999))
+        {
+        System.out.println(id+" "+name+" "+bal);
+        }
+        if(bal<0)
+        {
+            bal=0;
+            System.out.println(id+" "+name+" "+bal);
+        }
+        if(id<100 || id>999)
+        {
+            id=-1;
+            System.out.println(id+" "+name+" "+bal);
+        }
+        int sum=bal+cre;
+        System.out.println(sum);
+        System.out.println(sum);
+        if(b<-10000)
+        {
+            System.out.println("The balance can be negative but no less than -10000");
+        }
+        else
+        {
+            System.out.println(b);
+        }
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner obj=new Scanner(System.in);
+        int id,bal,cre,b;
+        id=obj.nextInt();
+        obj.nextLine();
+        String name=obj.nextLine();
+        bal=obj.nextInt();
+        cre=obj.nextInt();
+        b=obj.nextInt();
+        setAccountBalance s=new setAccountBalance(name,id,bal,cre,b);
+        s.display();
+    }
+}
