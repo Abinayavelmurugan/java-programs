@@ -1,0 +1,119 @@
+import java.io.*;
+import java.util.Scanner;
+class Customer
+{
+    void calculateDiscount()
+    {
+        
+    }
+    
+}
+class BasicCustomer extends Customer
+{
+    String name,city,gen;
+    int age,a;
+    BasicCustomer(String name,String city, int age,String gen,int a)
+    {
+        this.name=name;
+        this.city=city;
+        this.age=age;
+        this.gen=gen;
+        this.a=a;
+    }
+    void display()
+    {
+        System.out.println(name);
+        System.out.println(city);
+        System.out.println(age);
+        System.out.println(gen);
+        System.out.println(a);
+    }
+
+
+   void calculateDiscount(int a)
+    {
+        if(a>=1 && a<=4999)
+        {
+            System.out.println("100");
+        }
+        else if(a>=5000 && a<=7499)
+        {
+            System.out.println("250");
+        }
+        else if(a>=7500 && a<=9999)
+        {
+            System.out.println("500");
+        }
+        else if(a>=10000 && a<=19999)
+        {
+            System.out.println("750");
+        }
+        else if(a>=20000 && a<=29999)
+        {
+            System.out.println("1000");
+        }
+        else
+        {
+            System.out.println("1500");
+        }
+    }
+}
+class PremiumCustomer extends Customer
+{
+    void calculateDiscount(int a)
+    {
+        if(a>=1 && a<=4999)
+        {
+            System.out.println("200");
+        }
+        else if(a>=5000 && a<=7499)
+        {
+            System.out.println("400");
+        }
+        else if(a>=7500 && a<=9999)
+        {
+            System.out.println("700");
+        }
+        else if(a>=10000 && a<=19999)
+        {
+            System.out.println("1000");
+        }
+        else if(a>20000 && a<=29999)
+        {
+            System.out.println("1500");
+        }
+        else{
+            System.out.println("2000");
+        }
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner obj=new Scanner(System.in);
+        String name,city,gen;
+        int age,a,p;
+        name=obj.nextLine();
+        city=obj.nextLine();
+        age=obj.nextInt();
+        obj.nextLine();
+        gen=obj.nextLine();
+        a=obj.nextInt();
+        p=obj.nextInt();
+        BasicCustomer b=new BasicCustomer(name,city,age,gen,a);
+        b.display();
+        if(p==0)
+        {
+            b.calculateDiscount(a);
+        }
+        PremiumCustomer pr=new PremiumCustomer();
+       if(p==1)
+       {
+           int pa=obj.nextInt();
+           System.out.println(pa);
+           pr.calculateDiscount(a);
+        
+       }
+    }
+}
