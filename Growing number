@@ -1,0 +1,74 @@
+import java.util.Scanner;
+import java.util.Arrays;
+interface Growing
+{
+    abstract void isGrowing();
+}
+class GrowingNumber implements Growing
+{
+    int n;
+    GrowingNumber(int n)
+    {
+        this.n=n;
+    }
+    public void isGrowing()
+    {
+        int rem1,rem2,rev=0;
+        while(n>0)
+        {
+            rem1=n%10;
+            n=n/10;
+            rem2=n%10;
+            if(rem2<rem1)
+            {
+               rev=1;
+               continue;
+            }
+            else
+            {
+                System.out.println("Not Growing number");
+                rev=0;
+                break;
+            }
+        }
+        if(rev==1)
+        {
+            System.out.println("Growing number");
+        }
+    }
+}
+class GrowingString implements Growing
+{
+    String str;
+    GrowingString(String str)
+    {
+        this.str=str;
+    }
+    public void isGrowing()
+    {
+       char[] c=str.toCharArray();
+       Arrays.sort(c);
+        if(str.equals(new String(c)))
+        {
+            System.out.println("Growing string");
+        }
+        else
+        {
+            System.out.println("Not growing string");
+        }
+    }
+}
+class main
+{
+    public static void main(String[] args)
+    {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+      // s.nextLine();
+        String str=s.nextLine();
+        GrowingNumber gn=new GrowingNumber(n);
+        gn.isGrowing();
+        GrowingString gs=new GrowingString(str);
+        gs.isGrowing();
+    }
+}
